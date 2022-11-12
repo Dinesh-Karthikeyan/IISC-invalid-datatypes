@@ -1,7 +1,7 @@
 import smtplib
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEText import MIMEText
-from email.MIMEImage import MIMEImage
+# from email.MIMEMultipart import MIMEMultipart
+# from email.MIMEText import MIMEText
+# from email.MIMEImage import MIMEImage
 
 # Email you want to send the update from (only works with gmail)
 fromEmail = 'iisc.invaliddatatypes@gmail.com'
@@ -30,11 +30,14 @@ def sendEmail():
 	# msgImage = MIMEImage(image)
 	# msgImage.add_header('Content-ID', '<image1>')
 	# msgRoot.attach(msgImage)
+	subject = 'Chetan test subject'
+	body = 'Hello Hello Hello'
+	msg = f'Subject: {subject}\n\n{body}'
 
 	smtp = smtplib.SMTP('smtp.gmail.com', 587)
 	smtp.starttls()
 	smtp.login(fromEmail, fromEmailPassword)
-	smtp.sendmail(fromEmail, toEmail, "HELLO CHETAN")
+	smtp.sendmail(fromEmail, toEmail, msg)
     
 	smtp.quit()
 
